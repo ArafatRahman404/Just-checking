@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahid Rahman Rahat | Educator & Elocutionist</title>
+    
+    <!-- Premium Typography: Playfair Display for English, Noto Serif Bengali for pristine Bengali script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS for rapid, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Playfair Display"', '"Noto Serif Bengali"', 'serif'],
+                        body: ['"Lora"', '"Noto Serif Bengali"', 'serif'],
+                    },
+                    colors: {
+                        theme: {
+                            bg: '#FDFBF7',      // Soft warm cream
+                            surface: '#F4EFEA', // Slightly darker cream for cards/sections
+                            text: '#2C241B',    // Deep charcoal/brown for soft contrast
+                            accent: '#964F34',  // Terracotta / clay accent
+                            border: '#E8E2D9',  // Soft earthy border
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #2C241B;
+            overflow-x: hidden;
+        }
+
+        /* Scroll reveal base classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Custom underline effect for links */
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Video Card Hover Effects */
+        .video-card {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+        }
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(44, 36, 27, 0.15);
+        }
+        .video-img-container img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .video-card:hover .video-img-container img {
+            transform: scale(1.05);
+        }
+        .play-overlay {
+            background: rgba(44, 36, 27, 0.4);
+            transition: background 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+        }
+        .video-card:hover .play-overlay {
+            opacity: 1;
+            background: rgba(150, 79, 52, 0.6); /* Shifts to terracotta */
+        }
+        
+        /* Input styling overrides */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #964F34;
+            box-shadow: 0 0 0 1px #964F34;
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-theme-accent selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-500 bg-theme-bg/80 backdrop-blur-md border-b border-transparent py-4">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="font-heading text-2xl font-bold tracking-wider text-theme-text">SRR.</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-[0.15em] uppercase text-theme-text/80">
+                <a href="#about" class="hover-underline-animation hover:text-theme-accent transition-colors">About</a>
+                <a href="#philosophy" class="hover-underline-animation hover:text-theme-accent transition-colors">Philosophy</a>
+                <a href="#works" class="hover-underline-animation hover:text-theme-accent transition-colors">Works</a>
+                <a href="#contact" class="hover-underline-animation hover:text-theme-accent transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button (Visual Only) -->
+            <button class="md:hidden text-theme-text">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+        <!-- Aesthetic background blur elements -->
+        <div class="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-theme-surface rounded-full blur-[100px] opacity-70 -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-[#EAE3DA] rounded-full blur-[120px] opacity-60 -z-10 pointer-events-none"></div>
+
+        <div class="text-center max-w-5xl mx-auto reveal active">
+            <p class="font-heading italic text-theme-accent text-xl md:text-2xl mb-6 tracking-wide">
+                শিক্ষক ও আবৃত্তিকার
+            </p>
+            <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 leading-[1.1] text-theme-text">
+                Shahid Rahman <br>
+                <span class="text-theme-accent">Rahat</span>
+            </h1>
+            <div class="w-24 h-px bg-theme-text/30 mx-auto mb-8"></div>
+            <p class="text-lg md:text-2xl text-theme-text/80 mb-12 max-w-2xl mx-auto font-light tracking-wide uppercase">
+                Educator | Elocutionist
+            </p>
+            <a href="#about" class="inline-flex items-center justify-center w-14 h-14 rounded-full border border-theme-border text-theme-text hover:bg-theme-text hover:text-theme-bg transition-all duration-300">
+                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-6 bg-theme-surface relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Bengali Bio Side -->
+                <div class="reveal">
+                    <svg class="w-12 h-12 text-theme-accent/30 mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <blockquote class="font-heading text-3xl md:text-4xl lg:text-5xl text-theme-text leading-tight mb-8 font-medium">
+                        "বাংলার সাথে প্রেম আছে আমার। হয়তো এক পাক্ষিক তাই ঠিক মতো জমছে না। একদিন হয়তো জমবে। সেই দিনের অপেক্ষা করি। সাথে থাকুন প্রিয়।"
+                    </blockquote>
+                    <p class="font-heading text-xl text-theme-accent font-semibold">— শাহিদ রহমান রাহাত</p>
+                </div>
+
+                <!-- English Translation & Description Side -->
+                <div class="reveal delay-200 lg:pl-12 lg:border-l border-theme-border">
+                    <p class="text-xl md:text-2xl text-theme-text/80 leading-relaxed italic mb-8 font-heading">
+                        "I harbor a romance with the Bengali language. Perhaps it is one-sided, which is why it hasn't fully blossomed yet. But one day, it will. I await that day. Stay with me, dear."
+                    </p>
+                    <div class="space-y-6 text-theme-text/70 leading-loose">
+                        <p>
+                            As a dedicated educator and a passionate elocutionist, Shahid Rahman Rahat's journey is deeply intertwined with the phonetic beauty and grammatical richness of Bengali. His work transcends traditional teaching, elevating language into an art form.
+                        </p>
+                        <p>
+                            Through his recitations, he breathes life into classic literature, honoring the profound emotions woven into the works of legendary poets. His digital presence serves as a sanctuary for those who appreciate the purity of language and the resonance of a well-spoken word.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em] text-theme-accent mb-4 reveal">Teaching Philosophy</h2>
+            <h3 class="font-heading text-4xl md:text-5xl font-bold mb-16 text-theme-text reveal delay-100">Preserving Linguistic Integrity</h3>
+            
+            <div class="bg-white border border-theme-border p-10 md:p-16 rounded-2xl shadow-sm max-w-4xl mx-auto reveal delay-200 relative overflow-hidden">
+                <!-- Decorative background element -->
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-theme-surface rounded-full opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-10 text-left">
+                    <div class="flex-shrink-0 w-24 h-24 bg-theme-accent text-white rounded-full flex items-center justify-center shadow-lg">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-heading text-3xl md:text-4xl font-bold mb-4">আসুন একটি অপপ্রয়োগ শিখি।</h4>
+                        <p class="text-xl text-theme-accent italic mb-4 font-heading">"Let's learn a linguistic misuse."</p>
+                        <p class="text-theme-text/80 leading-relaxed">
+                            Language evolves, but its foundation must remain strong. A core pillar of Rahat's teaching methodology involves identifying and correcting common grammatical anomalies and semantic misuses in everyday Bengali. By addressing these structural errors with grace and clarity, he empowers his students and audience to communicate with precision and elegance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="py-32 px-6 bg-theme-surface">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em] text-theme-accent mb-4">Portfolio</h2>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold text-theme-text">Literary Works & Recitation</h3>
+                </div>
+                <a href="https://www.youtube.com/@ShahidRahmann" target="_blank" class="mt-6 md:mt-0 inline-flex items-center gap-2 text-theme-text font-bold uppercase tracking-widest text-sm hover:text-theme-accent transition-colors hover-underline-animation pb-1">
+                    View Full Library
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Video 1: Pahar Churay -->
+                <a href="https://www.youtube.com/@ShahidRahmann" target="_blank" class="video-card block bg-white rounded-xl overflow-hidden reveal">
+                    <div class="video-img-container relative aspect-[16/10] overflow-hidden bg-gray-200">
+                        <!-- Aesthetic mountain placeholder -->
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1000&q=80" alt="Mountains" class="w-full h-full object-cover">
+                        <div class="play-overlay absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/50 text-white">
+                                <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 border border-t-0 border-theme-border rounded-b-xl">
+                        <p class="text-theme-accent text-sm font-bold tracking-widest uppercase mb-2">Poetry</p>
+                        <h4 class="font-heading text-2xl font-bold text-theme-text mb-2">পাহাড় চূড়ায়; সুনীল গঙ্গোপাধ্যায়</h4>
+                        <p class="text-theme-text/70 text-sm leading-relaxed">A soulful recitation capturing the immense heights of human emotion, written by Sunil Gangopadhyay.</p>
+                    </div>
+                </a>
+
+                <!-- Video 2: Ami Okriti Odhom -->
+                <a href="https://www.youtube.com/@ShahidRahmann" target="_blank" class="video-card block bg-white rounded-xl overflow-hidden reveal delay-100">
+                    <div class="video-img-container relative aspect-[16/10] overflow-hidden bg-gray-200">
+                        <!-- Aesthetic abstract/classical placeholder -->
+                        <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=1000&q=80" alt="Abstract Art" class="w-full h-full object-cover">
+                        <div class="play-overlay absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/50 text-white">
+                                <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 border border-t-0 border-theme-border rounded-b-xl">
+                        <p class="text-theme-accent text-sm font-bold tracking-widest uppercase mb-2">Devotion</p>
+                        <h4 class="font-heading text-2xl font-bold text-theme-text mb-2">আমি অকৃতি অধম; রজনীকান্ত সেন</h4>
+                        <p class="text-theme-text/70 text-sm leading-relaxed">A profound reflection on devotion, humility, and spiritual surrender penned by Rajanikanta Sen.</p>
+                    </div>
+                </a>
+
+                <!-- Video 3: O Poran Samlamu Kemne -->
+                <a href="https://www.youtube.com/@ShahidRahmann" target="_blank" class="video-card block bg-white rounded-xl overflow-hidden reveal">
+                    <div class="video-img-container relative aspect-[16/10] overflow-hidden bg-gray-200">
+                        <!-- Aesthetic emotive/portrait placeholder -->
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1000&q=80" alt="Emotive landscape" class="w-full h-full object-cover">
+                        <div class="play-overlay absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/50 text-white">
+                                <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 border border-t-0 border-theme-border rounded-b-xl">
+                        <p class="text-theme-accent text-sm font-bold tracking-widest uppercase mb-2">Emotion</p>
+                        <h4 class="font-heading text-2xl font-bold text-theme-text mb-2">ও পরান সামলামু কেমনে ?</h4>
+                        <p class="text-theme-text/70 text-sm leading-relaxed">An intensely emotional delivery expressing the struggles of containing overwhelming heartache.</p>
+                    </div>
+                </a>
+
+                <!-- Video 4: Purano Sei Diner Kotha -->
+                <a href="https://www.youtube.com/@ShahidRahmann" target="_blank" class="video-card block bg-white rounded-xl overflow-hidden reveal delay-100">
+                    <div class="video-img-container relative aspect-[16/10] overflow-hidden bg-gray-200">
+                        <!-- Aesthetic nostalgic/vintage book placeholder -->
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1000&q=80" alt="Old Books" class="w-full h-full object-cover">
+                        <div class="play-overlay absolute inset-0 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/50 text-white">
+                                <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 border border-t-0 border-theme-border rounded-b-xl">
+                        <p class="text-theme-accent text-sm font-bold tracking-widest uppercase mb-2">Nostalgia</p>
+                        <h4 class="font-heading text-2xl font-bold text-theme-text mb-2">পুরানো সেই দিনের কথা / তুমি চলে যাচ্ছো।</h4>
+                        <p class="text-theme-text/70 text-sm leading-relaxed">A poignant journey through memories of days gone by, intertwined with the sorrow of departure.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-white py-32 px-6 border-t border-theme-border relative">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- Contact Details -->
+            <div class="reveal">
+                <h2 class="font-heading text-sm font-bold uppercase tracking-[0.2em] text-theme-accent mb-4">Connect</h2>
+                <h3 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-theme-text">Reach Out</h3>
+                <p class="text-theme-text/70 leading-relaxed mb-10 text-lg">
+                    Whether you wish to discuss literary collaborations, invite Rahat for an event, or inquire about educational sessions, please feel free to send a message.
+                </p>
+                
+                <div class="space-y-6 text-theme-text">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-theme-surface flex items-center justify-center text-theme-accent">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm text-theme-text/50 uppercase tracking-widest font-semibold">Email</p>
+                            <p class="font-medium">contact@shahidrahmanrahat.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mockup Contact Form -->
+            <div class="bg-theme-surface p-8 md:p-10 rounded-2xl shadow-sm reveal delay-100">
+                <form onsubmit="event.preventDefault();" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold tracking-wide text-theme-text mb-2">Name</label>
+                        <input type="text" class="w-full bg-white border border-theme-border rounded-lg px-4 py-3 text-theme-text transition-colors" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold tracking-wide text-theme-text mb-2">Email</label>
+                        <input type="email" class="w-full bg-white border border-theme-border rounded-lg px-4 py-3 text-theme-text transition-colors" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold tracking-wide text-theme-text mb-2">Message</label>
+                        <textarea rows="4" class="w-full bg-white border border-theme-border rounded-lg px-4 py-3 text-theme-text transition-colors resize-none" placeholder="How can I help you?"></textarea>
+                    </div>
+                    <button type="button" class="w-full bg-theme-text text-white font-semibold uppercase tracking-widest py-4 rounded-lg hover:bg-theme-accent transition-colors duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Footer -->
+    <footer class="bg-theme-text text-theme-surface py-20 px-6 border-t-[8px] border-theme-accent text-center relative overflow-hidden">
+        <!-- Background subtle typography -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
+            <span class="font-heading text-[20vw] whitespace-nowrap font-bold">SRR</span>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative z-10 reveal">
+            <h2 class="font-heading text-4xl md:text-5xl mb-6">Join the Community</h2>
+            <p class="text-theme-surface/70 mb-10 text-lg">
+                Subscribe to the official YouTube channel to experience the beauty of Bengali literature and language lessons every week.
+            </p>
+            
+            <a href="https://www.youtube.com/@ShahidRahmann" target="_blank" class="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-red-700 hover:scale-105 transition-all duration-300 shadow-xl shadow-red-900/20">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                Subscribe @ShahidRahmann
+            </a>
+            
+            <div class="mt-20 pt-8 border-t border-theme-surface/20 flex flex-col md:flex-row items-center justify-between text-sm text-theme-surface/40 font-body">
+                <p>&copy; 2026 Shahid Rahman Rahat. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Designed for Education & Art.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('border-theme-border/50', 'shadow-sm');
+                    navbar.classList.remove('border-transparent');
+                } else {
+                    navbar.classList.remove('border-theme-border/50', 'shadow-sm');
+                    navbar.classList.add('border-transparent');
+                }
+            });
+
+            // Intersection Observer for scroll-reveal animations
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
